@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="https://github.com/OsmiCSX/osmi-kit" target="_blank"><img width="300" src="https://i.imgur.com/iUmHt0q.png" height="354"></a><br>
+  <a href="https://github.com/OsmiCSX/osmi-kit" target="_blank"><img width="300" src="https://i.imgur.com/iUmHt0q.png" height="534"></a><br>
   Osmi Kit - Latest React Native Hooks Boilerplate
 </p>
 
 ------
 
 ## Original Concept
-Original concept of this boilerplate is from (https://github.com/infinitered/ignite)[Ignite]. We're really like the project structure from Ignite Boilerplate, especially for Ignite Andross. But we realize that Infinite Red team no longer maintain for the Andross Boilerplate. So, therefore we create an alternative boilerplate like Ignite Andross.
+Original concept of this boilerplate is from <a href="https://github.com/infinitered/ignite" target="_blank">Ignite</a>. We're really like the project structure from Ignite Boilerplate, especially for Ignite Andross. But we realize that Infinite Red team no longer maintain for the Andross Boilerplate. So, therefore we create an alternative boilerplate like Ignite Andross.
 
 ## Tech Stack
 Osmi Kit apps include the following rock-solid technical decisions out of the box:
