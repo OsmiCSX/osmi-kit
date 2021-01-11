@@ -4,9 +4,10 @@ import Immutable from 'seamless-immutable'
 import { reactotronRedux as reduxPlugin } from 'reactotron-redux'
 import sagaPlugin from 'reactotron-redux-saga'
 import { name } from '../../app.json'
+import Env from "react-native-config";
 
 const reactotron = Reactotron
-  .configure({ name, host: '192.168.100.3' })
+  .configure({ name, host: Env.REACTOTRON_HOST })
   .useReactNative()
   .use(reduxPlugin({ onRestore: Immutable }))
   .use(sagaPlugin())
