@@ -58,7 +58,11 @@ buck-out/
 # CocoaPods
 /ios/Pods/
 
+# Test
+__snapshots__/
+
 # Misc
 #
 .env
 *.hprof
+.vscode

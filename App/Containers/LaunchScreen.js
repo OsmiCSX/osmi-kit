@@ -1,109 +1,40 @@
-import React from 'react'
-import {
-  TouchableOpacity,
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native'
+import React, { useCallback } from 'react'
+import { connect } from 'react-redux'
+import { StatusBar, Image, View, Text } from 'react-native'
+import SafeAreaView from 'react-native-safe-area-view'
+import Images from '../Images'
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen'
+// Components
+import Button from '../Components/Button'
 
-const LaunchScreen = (props) => {
+// Styles
+import styles from './Styles/LaunchScreenStyle'
+import { apply } from '../Themes/OsmiProvider'
+
+const LaunchScreen = props => {
+
+  const _navigateExplore = useCallback(() => props.navigation.navigate("WelcomeScreen"), [])
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <TouchableOpacity onPress={() => props.navigation.navigate('WelcomeScreen')}>
-            <Header />
-          </TouchableOpacity>
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle='light-content' backgroundColor={apply('soft-secondary')} />
+
+      <Image source={Images.appLogo} style={styles.appLogo} />
+      <Text style={styles.title}>Welcome to Osmi Kit</Text>
+      <Text style={styles.desc}>This probably isn't what your app is going to look like. Unless your designer handed you this screen and, in that case, congrats! You're ready to ship. For everyone else, this is where you'll see a live preview of your fully functioning app using Osmi Kit.</Text>
+
+      <Button style={styles.btnExplore} onPress={_navigateExplore}>
+        <Text style={styles.btnExploreLabel}>Explore</Text>
+      </Button>
+    </SafeAreaView>
   )
 }
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+const mapStateToProps = state => ({
+
 })
 
-export default LaunchScreen
+const mapDispatchToProps = dispatch => ({
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LaunchScreen)
